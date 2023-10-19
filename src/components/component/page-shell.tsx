@@ -5,8 +5,7 @@
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { CardTitle, CardHeader, CardContent, Card } from '@/components/ui/card'
-import { BookSVG } from '@/components/svg/book'
-import { UsersSVG } from '@/components/svg/users'
+import { BookSVG, UsersSVG } from '@/components/svg/'
 
 export function PageShell() {
   return (
