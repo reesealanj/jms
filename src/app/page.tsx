@@ -1,17 +1,22 @@
-'use client'
-import { CardTitle, CardHeader, CardContent, Card } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
 import { SidebarLayout } from '@/components/layout'
-import { InfoCircleSVG } from '@/components/svg'
+import { ModalContainer } from '@/components/ui/modal/modal-container'
 import { ServiceTable } from '@/components/ui/service/service-table'
-import { BaseStatusCard } from '@/components/ui/status-cards/base-status-card'
+import { AwaitingCustomerServicesCard, OpenServicesCard } from '@/components/ui/status-cards'
+import { LoadingStatusFallbackCard } from '@/components/ui/status-cards/loading-card'
+import { Suspense } from 'react'
 
 export default function Home() {
   return (
     <SidebarLayout>
-      <div className='grid grid-cols-2 gap-4'>
-        <BaseStatusCard title={'Open Services'} value={'Loading...'} tooltipValue={'More information'} />
+      <div className='grid grid-cols-3 gap-4'>
+        <Suspense fallback={<LoadingStatusFallbackCard />}>
+          <OpenServicesCard />
+        </Suspense>
+        <Suspense fallback={<LoadingStatusFallbackCard />}>
+          <AwaitingCustomerServicesCard />
+        </Suspense>
       </div>
+      <ModalContainer />
       <ServiceTable />
     </SidebarLayout>
   )

@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { BookSVG, BoxSVG, GearSVG, MagnifyingGlassSVG, PersonOutlineSVG, UsersSVG } from '@/components/svg'
 import { Breadcrumbs, SearchInput } from '@/components/layout'
+import { NavbarSearch } from './navbar-search'
 
 export function SidebarLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -73,12 +74,7 @@ export function SidebarLayout({ children }: { children: React.ReactNode }) {
               },
             ]}
           />
-          <div className='flex items-center justify-between w-1/3'>
-            <SearchInput />
-            <Button className='ml-2' variant='outline'>
-              <MagnifyingGlassSVG />
-            </Button>
-          </div>
+          <NavbarSearch />
         </div>
         {children}
       </main>

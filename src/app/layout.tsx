@@ -2,6 +2,9 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { GlobalSearchProvider } from '@/context/global-search'
+import { ModalProvider } from '@/context/modal'
+import { TooltipProvider } from '@/components/ui/tooltip'
+import { ModalContainer } from '@/components/ui/modal/modal-container'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -13,9 +16,13 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='en'>
-      <GlobalSearchProvider>
-        <body className={inter.className}>{children}</body>
-      </GlobalSearchProvider>
+      <ModalProvider>
+        <GlobalSearchProvider>
+          <TooltipProvider>
+            <body className={inter.className}>{children}</body>
+          </TooltipProvider>
+        </GlobalSearchProvider>
+      </ModalProvider>
     </html>
   )
 }
