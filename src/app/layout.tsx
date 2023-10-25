@@ -19,7 +19,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <ModalProvider>
         <GlobalSearchProvider>
           <TooltipProvider>
-            <body className={inter.className}>{children}</body>
+            <body className={inter.className}>
+              {children}
+              <ModalContainer />
+            </body>
           </TooltipProvider>
         </GlobalSearchProvider>
       </ModalProvider>

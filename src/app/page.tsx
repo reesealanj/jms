@@ -1,9 +1,13 @@
-import { SidebarLayout } from '@/components/layout'
-import { ModalContainer } from '@/components/ui/modal/modal-container'
-import { ServiceTable } from '@/components/ui/service/service-table'
-import { AwaitingCustomerServicesCard, OpenServicesCard } from '@/components/ui/status-cards'
-import { LoadingStatusFallbackCard } from '@/components/ui/status-cards/loading-card'
 import { Suspense } from 'react'
+
+import { SidebarLayout } from '@/components/layout'
+import {
+  AwaitingCustomerServicesCard,
+  OpenServicesCard,
+  AwaitingPartsServicesCard,
+  LoadingStatusFallbackCard,
+} from '@/components/ui/status-cards'
+import { ServiceTable } from '@/components/ui/service/service-table'
 
 export default function Home() {
   return (
@@ -15,8 +19,10 @@ export default function Home() {
         <Suspense fallback={<LoadingStatusFallbackCard />}>
           <AwaitingCustomerServicesCard />
         </Suspense>
+        <Suspense fallback={<LoadingStatusFallbackCard />}>
+          <AwaitingPartsServicesCard />
+        </Suspense>
       </div>
-      <ModalContainer />
       <ServiceTable />
     </SidebarLayout>
   )
