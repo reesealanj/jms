@@ -1,6 +1,6 @@
 import { BaseSVGInput } from '@/lib/types/svg'
 
-export const SVGBase = (props: BaseSVGInput) => {
+export function SVGBase(props: BaseSVGInput) {
   return (
     <svg
       className={`h-4 w-4 ${props?.className}`}

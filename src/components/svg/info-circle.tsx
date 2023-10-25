@@ -1,7 +1,7 @@
 import { SVGInputType } from '@/lib/types/svg'
 import { SVGBase } from './svg-base'
 
-export const InfoCircleSVG = (props: SVGInputType) => {
+export function InfoCircleSVG(props: SVGInputType) {
   return (
     <SVGBase {...props}>
       <circle cx='12' cy='12' r='10' />

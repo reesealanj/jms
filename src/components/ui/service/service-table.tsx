@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button'
 
-export const ServiceTable = () => {
+export function ServiceTable() {
   return (
     <div className='flex-1 rounded-lg border border-zinc-200 border-dashed dark:border-zinc-800 pt-4'>
       <table className='w-full text-left'>

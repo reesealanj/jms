@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button'
 
 import { useModal } from '@/context/modal'
 
-export const NavbarSearch = () => {
+export function NavbarSearch() {
   const { openModal } = useModal()
 
   return (

@@ -1,9 +1,10 @@
 'use client'
 import { useGlobalSearch } from '@/context/global-search'
 
-export const SearchInput = () => {
+export function SearchInput() {
   const { value: searchValue, updateSearch } = useGlobalSearch()
-  const handleUpdate = (e: any) => {
+
+  function handleUpdate(e: any) {
     updateSearch(e.target.value)
   }
 

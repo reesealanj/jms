@@ -1,7 +1,7 @@
 import { CardTitle, CardHeader, CardContent, Card } from '@/components/ui/card'
 import { BaseStatusInput } from '@/lib/types/status-card'
 
-export const BaseStatusCard = ({ title, value }: BaseStatusInput) => {
+export async function BaseStatusCard({ title, value }: BaseStatusInput) {
   return (
     <Card className='flex relative'>
       <CardHeader>

@@ -4,7 +4,7 @@ import { ModalBase } from '@/components/ui/modal/modal-base'
 import { Button } from '@/components/ui/button'
 import { useModal } from '@/context/modal'
 
-export const ModalContainer = ({}) => {
+export function ModalContainer({}) {
   const { closeModal } = useModal()
 
   return (

@@ -1,7 +1,7 @@
 import { BreadcrumbInput, BreadcrumbItem } from '@/lib/types/breadcrumb'
 import Link from 'next/link'
 
-export const Breadcrumbs = (props: BreadcrumbInput) => {
+export function Breadcrumbs(props: BreadcrumbInput) {
   const breadcrumbs = props?.items ?? [{ href: '/', title: 'Home' }]
 
   return (
@@ -20,7 +20,7 @@ export const Breadcrumbs = (props: BreadcrumbInput) => {
   )
 }
 
-export const Breadcrumb = ({ href, title, caret }: BreadcrumbItem & { caret: boolean }) => {
+export function Breadcrumb({ href, title, caret }: BreadcrumbItem & { caret: boolean }) {
   return (
     <>
       <Link className='text-zinc-500 dark:text-zinc-400' href={href ?? '#'}>
@@ -31,6 +31,6 @@ export const Breadcrumb = ({ href, title, caret }: BreadcrumbItem & { caret: boo
   )
 }
 
-export const BreadcrumbSeparator = () => {
+export function BreadcrumbSeparator() {
   return <span className='text-zinc-500 dark:text-zinc-400'>{`>`}</span>
 }

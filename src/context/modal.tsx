@@ -11,16 +11,20 @@ const defaultState: ModalContextProps = {
 
 const ModalContext = createContext(defaultState)
 
-export const ModalProvider = (props: { children: React.ReactNode }) => {
+export function ModalProvider(props: { children: React.ReactNode }) {
   const [open, setIsOpen] = useState<boolean>(false)
 
-  const openModal = () => setIsOpen(true)
-  const closeModal = () => setIsOpen(false)
+  function openModal() {
+    setIsOpen(true)
+  }
+  function closeModal() {
+    setIsOpen(false)
+  }
 
   return <ModalContext.Provider value={{ isOpen: open, openModal, closeModal }}>{props.children}</ModalContext.Provider>
 }
 
-export const useModal = () => {
+export function useModal() {
   const context = useContext(ModalContext)
   if (!context) {
     throw new Error('useModal failure: modal context must be used inside ModalProvider.')

@@ -1,7 +1,7 @@
 import { SVGInputType } from '@/lib/types/svg'
 import { SVGBase } from './svg-base'
 
-export const MagnifyingGlassSVG = (props: SVGInputType) => {
+export function MagnifyingGlassSVG(props: SVGInputType) {
   return (
     <SVGBase {...props}>
       <circle cx='11' cy='11' r='8' />

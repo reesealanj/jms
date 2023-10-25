@@ -1,7 +1,7 @@
 'use client'
 import { useModal } from '@/context/modal'
 
-export const ModalBase = ({ children }: { children: React.ReactNode }) => {
+export function ModalBase({ children }: { children: React.ReactNode }) {
   const { isOpen, closeModal } = useModal()
 
   return (

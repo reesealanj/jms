@@ -1,7 +1,7 @@
 import { BaseStatusCard } from '@/components/ui/status-cards/base-status-card'
 import { ServicesApi } from '@/lib/api/services-api'
 
-export const AwaitingPartsServicesCard = async () => {
+export async function AwaitingPartsServicesCard() {
   const displayValue = await ServicesApi.getServicesPendingParts()
 
   return (

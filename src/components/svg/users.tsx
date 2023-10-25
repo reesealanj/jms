@@ -1,7 +1,7 @@
 import { SVGInputType } from '@/lib/types/svg'
 import { SVGBase } from './svg-base'
 
-export const UsersSVG = (props: SVGInputType) => {
+export function UsersSVG(props: SVGInputType) {
   return (
     <SVGBase {...props}>
       <path d='M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2' />
