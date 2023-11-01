@@ -1,16 +1,36 @@
+import { ServiceResponse } from "../types/service";
 import { delay } from "../utils";
+import { MOCK_SERVICES_LIST } from "./mock/mock-services-list";
 
 export const ServicesApi = {
-  getAllOpenServices: async (): Promise<string> => {
+  getAllOpenServicesCount: async (): Promise<string> => {
     await delay(4000);
-    return '5';
+    const servicesOpen = MOCK_SERVICES_LIST.filter((service) => {
+      return service.status !== "closed";
+    }).length.toString();
+    return servicesOpen;
   },
-  getServicesPendingCustomer: async (): Promise<string> => {
+  getServicesPendingCustomerCount: async (): Promise<string> => {
     await delay(2000);
-    return '1';
+    const servicesPendingCustomerInput = MOCK_SERVICES_LIST.filter(
+      (service) => {
+        return service.status === "needsCustomerInput";
+      }
+    ).length.toString();
+    return servicesPendingCustomerInput;
   },
-  getServicesPendingParts: async (): Promise<string> => {
+  getServicesPendingPartsCount: async (): Promise<string> => {
     await delay(1000);
-    return '4';
-  }
-}
+    const servicesPendingPartsCount = MOCK_SERVICES_LIST.filter((service) => {
+      return service.status === "needsParts";
+    }).length.toString();
+    return servicesPendingPartsCount;
+  },
+  getServiceList: async (): Promise<ServiceResponse> => {
+    await delay(5000);
+    return {
+      services: MOCK_SERVICES_LIST,
+      count: MOCK_SERVICES_LIST.length,
+    } as ServiceResponse;
+  },
+};
