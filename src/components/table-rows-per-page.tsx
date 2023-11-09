@@ -29,7 +29,7 @@ export function TableRowsPerPage({
           <SelectItem value="10">10</SelectItem>
           <SelectItem value="15">15</SelectItem>
           <SelectItem value="20">20</SelectItem>
-          <SelectItem value="all">All</SelectItem>
+          <SelectItem value="-1">All</SelectItem>
         </SelectGroup>
       </SelectContent>
     </Select>

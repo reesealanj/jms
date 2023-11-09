@@ -1,5 +1,16 @@
 import { PageWrapper } from "@/components/layout/page-wrapper";
 import { BreadcrumbItem } from "@/lib/types/breadcrumb";
+import CollapsableHistoryFeed from "@/app/services/components/history/collapsable-history-feed";
+import CollapsableLaborLog from "@/app/services/components/labor-log/collapsable-labor-log";
+import UnsavedChangesAlert from "@/app/services/components/unsaved-changes-alert";
+import ServiceOverview from "@/app/services/components/overview/service-overview";
+import CollapsableServiceActions from "@/app/services/components/collabsable-service-actions";
+import CollapsableCustomerInformation from "@/app/services/components/collapsable-customer-info";
+import CollapsableServiceSummary from "@/app/services/components/collapsable-service-summary";
+import CollapsablePartsLog from "@/app/services/components/parts/collapsable-parts-log";
+import BoatOverview from "../../components/overview/boat";
+import MotorOverview from "../../components/overview/motor/motor-overview";
+import TrailerOverview from "../../components/overview/trailer";
 
 export default function EditServicePage({
   params,
@@ -16,7 +27,30 @@ export default function EditServicePage({
 
   return (
     <PageWrapper breadcrumbs={pageCrumbs}>
-      Edit this service: {currentServiceId}
+      <section key="1" className="w-full flex">
+        <div className="w-1/3 border-r border-zinc-200 dark:border-zinc-800 overflow-auto">
+          <div className="p-4 space-y-2">
+            <CollapsableServiceSummary />
+            <CollapsableCustomerInformation editable />
+            <CollapsableServiceActions editable />
+            <>
+              <h2 className="text-xl font-bold">Overview</h2>
+              <BoatOverview editable />
+              <MotorOverview editable />
+              <TrailerOverview editable />
+            </>
+          </div>
+        </div>
+        <div className="w-2/3">
+          <div className="p-4 space-y-4">
+            <UnsavedChangesAlert />
+            <h2 className="text-2xl font-bold">Ticket Details</h2>
+            <CollapsableLaborLog />
+            <CollapsablePartsLog />
+            <CollapsableHistoryFeed />
+          </div>
+        </div>
+      </section>
     </PageWrapper>
   );
 }

@@ -17,6 +17,7 @@ export default async function ServicesHome() {
   ];
 
   const services = await ServicesApi.getServiceList();
+
   return (
     <PageWrapper breadcrumbs={pageCrumbs}>
       <div className="grid grid-cols-3 gap-4">

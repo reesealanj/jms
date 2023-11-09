@@ -1,7 +1,7 @@
 "use client";
 
 import { useTable } from "@/lib/hooks/useTable";
-import { Fragment, useState } from "react";
+import { useState } from "react";
 import { IconActionButton } from "../icon-action-button";
 import { Service } from "@/lib/types/service";
 import { TableFooter } from "./table-footer";
@@ -20,10 +20,16 @@ export function ServiceListTable<T>({
   const { slice, range } = useTable<Service>(data, page, rpp);
 
   function setNewRowsPerPage(num: number) {
+    if (num === -1) {
+      setPage(1);
+      setRpp(data.length);
+      return;
+    }
     const range = calculateTableRange(data, num);
     if (!range.includes(page)) {
       setPage(1);
       setRpp(num);
+      return;
     }
     setRpp(num);
   }

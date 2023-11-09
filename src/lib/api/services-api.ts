@@ -1,4 +1,4 @@
-import { ServiceResponse } from "../types/service";
+import { Service, ServiceResponse } from "../types/service";
 import { delay } from "../utils";
 import { MOCK_SERVICES_LIST } from "./mock/mock-services-list";
 
@@ -27,10 +27,24 @@ export const ServicesApi = {
     return servicesPendingPartsCount;
   },
   getServiceList: async (): Promise<ServiceResponse> => {
-    await delay(5000);
+    await delay(300);
     return {
       services: MOCK_SERVICES_LIST,
       count: MOCK_SERVICES_LIST.length,
     } as ServiceResponse;
+  },
+  getServiceById: async (id: string): Promise<ServiceResponse> => {
+    await delay(200);
+    const selectedService = MOCK_SERVICES_LIST.filter((service) => {
+      return service.id === id;
+    });
+    return {
+      services: selectedService,
+      error:
+        selectedService.length > 0
+          ? {}
+          : { message: `Service not found with ID ${id}` },
+      count: selectedService.length,
+    };
   },
 };

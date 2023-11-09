@@ -7,3 +7,5 @@ export * from "./magnifying-glass";
 export * from "./info-circle";
 export * from "./pencil";
 export * from "./close";
+export * from "./trash";
+export * from "./create";
