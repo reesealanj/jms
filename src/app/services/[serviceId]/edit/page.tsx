@@ -3,7 +3,6 @@ import { BreadcrumbItem } from "@/lib/types/breadcrumb";
 import CollapsableHistoryFeed from "@/app/services/components/history/collapsable-history-feed";
 import CollapsableLaborLog from "@/app/services/components/labor-log/collapsable-labor-log";
 import UnsavedChangesAlert from "@/app/services/components/unsaved-changes-alert";
-import ServiceOverview from "@/app/services/components/overview/service-overview";
 import CollapsableServiceActions from "@/app/services/components/collabsable-service-actions";
 import CollapsableCustomerInformation from "@/app/services/components/collapsable-customer-info";
 import CollapsableServiceSummary from "@/app/services/components/collapsable-service-summary";
@@ -11,6 +10,7 @@ import CollapsablePartsLog from "@/app/services/components/parts/collapsable-par
 import BoatOverview from "../../components/overview/boat";
 import MotorOverview from "../../components/overview/motor/motor-overview";
 import TrailerOverview from "../../components/overview/trailer";
+import NoChangesAlert from "../../components/no-changes-alert";
 
 export default function EditServicePage({
   params,
@@ -43,6 +43,7 @@ export default function EditServicePage({
         </div>
         <div className="w-2/3">
           <div className="p-4 space-y-4">
+            <NoChangesAlert />
             <UnsavedChangesAlert />
             <h2 className="text-2xl font-bold">Ticket Details</h2>
             <CollapsableLaborLog />
