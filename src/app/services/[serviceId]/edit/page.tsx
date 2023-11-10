@@ -45,10 +45,13 @@ export default function EditServicePage({
           <div className="p-4 space-y-4">
             <NoChangesAlert />
             <UnsavedChangesAlert />
-            <h2 className="text-2xl font-bold">Ticket Details</h2>
-            <CollapsableLaborLog />
-            <CollapsablePartsLog />
-            <CollapsableHistoryFeed />
+            {/* this section below is the one that will be swapped out for create/view/update boxes */}
+            <>
+              <h2 className="text-2xl font-bold">Ticket Details</h2>
+              <CollapsableLaborLog />
+              <CollapsablePartsLog />
+              <CollapsableHistoryFeed />
+            </>
           </div>
         </div>
       </section>
